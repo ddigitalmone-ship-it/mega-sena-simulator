@@ -1,0 +1,382 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * DESIGN SYSTEM: Quantum Probability
+ * Neomorfismo futurista com influências de computação quântica
+ * 
+ * Cores principais:
+ * - Fundo: Cinza-lavanda (#e8e4f0)
+ * - Primária: Índigo (#4f46e5)
+ * - Secundária: Coral (#f97316)
+ * - Acento: Turquesa (#14b8a6)
+ * 
+ * Tipografia: Plus Jakarta Sans, DM Sans, IBM Plex Mono
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  
+  /* Custom Quantum Probability colors */
+  --color-indigo: oklch(0.511 0.262 276.966);
+  --color-coral: oklch(0.702 0.191 41.116);
+  --color-turquoise: oklch(0.679 0.127 180.426);
+  --color-lavender: oklch(0.918 0.022 286.375);
+  --color-lavender-dark: oklch(0.85 0.03 286.375);
+}
+
+:root {
+  --primary: oklch(0.511 0.262 276.966); /* Índigo */
+  --primary-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.511 0.262 276.966);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --chart-1: oklch(0.679 0.127 180.426); /* Turquesa */
+  --chart-2: oklch(0.511 0.262 276.966); /* Índigo */
+  --chart-3: oklch(0.702 0.191 41.116); /* Coral */
+  --chart-4: oklch(0.6 0.2 276.966);
+  --chart-5: oklch(0.75 0.15 180.426);
+  --radius: 1rem;
+  --background: oklch(0.918 0.022 286.375); /* Lavanda suave */
+  --foreground: oklch(0.235 0.015 286.375);
+  --card: oklch(0.95 0.015 286.375);
+  --card-foreground: oklch(0.235 0.015 286.375);
+  --popover: oklch(0.95 0.015 286.375);
+  --popover-foreground: oklch(0.235 0.015 286.375);
+  --secondary: oklch(0.702 0.191 41.116); /* Coral */
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.88 0.02 286.375);
+  --muted-foreground: oklch(0.5 0.02 286.375);
+  --accent: oklch(0.679 0.127 180.426); /* Turquesa */
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.85 0.03 286.375);
+  --input: oklch(0.92 0.02 286.375);
+  --ring: oklch(0.511 0.262 276.966);
+  --sidebar: oklch(0.93 0.02 286.375);
+  --sidebar-foreground: oklch(0.235 0.015 286.375);
+  --sidebar-accent: oklch(0.88 0.02 286.375);
+  --sidebar-accent-foreground: oklch(0.235 0.015 286.375);
+  --sidebar-border: oklch(0.85 0.03 286.375);
+  --sidebar-ring: oklch(0.511 0.262 276.966);
+}
+
+.dark {
+  --primary: oklch(0.6 0.25 276.966);
+  --primary-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.6 0.25 276.966);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --background: oklch(0.18 0.02 286.375);
+  --foreground: oklch(0.9 0.01 286.375);
+  --card: oklch(0.22 0.025 286.375);
+  --card-foreground: oklch(0.9 0.01 286.375);
+  --popover: oklch(0.22 0.025 286.375);
+  --popover-foreground: oklch(0.9 0.01 286.375);
+  --secondary: oklch(0.702 0.191 41.116);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.28 0.02 286.375);
+  --muted-foreground: oklch(0.65 0.02 286.375);
+  --accent: oklch(0.679 0.127 180.426);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.3 0.02 286.375);
+  --input: oklch(0.28 0.02 286.375);
+  --ring: oklch(0.6 0.25 276.966);
+  --chart-1: oklch(0.679 0.127 180.426);
+  --chart-2: oklch(0.6 0.25 276.966);
+  --chart-3: oklch(0.702 0.191 41.116);
+  --chart-4: oklch(0.55 0.2 276.966);
+  --chart-5: oklch(0.7 0.15 180.426);
+  --sidebar: oklch(0.22 0.025 286.375);
+  --sidebar-foreground: oklch(0.9 0.01 286.375);
+  --sidebar-accent: oklch(0.28 0.02 286.375);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.3 0.02 286.375);
+  --sidebar-ring: oklch(0.6 0.25 276.966);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'DM Sans', system-ui, sans-serif;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+  
+  code, pre, .font-mono {
+    font-family: 'IBM Plex Mono', monospace;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-width: 1400px;
+    }
+  }
+  
+  /* Neomorphic card styles */
+  .neo-card {
+    background: oklch(0.95 0.015 286.375);
+    border-radius: 1.5rem;
+    box-shadow: 
+      8px 8px 16px oklch(0.85 0.02 286.375),
+      -8px -8px 16px oklch(0.98 0.01 286.375);
+    transition: all 0.3s ease;
+  }
+  
+  .neo-card:hover {
+    box-shadow: 
+      12px 12px 24px oklch(0.82 0.02 286.375),
+      -12px -12px 24px oklch(0.99 0.01 286.375);
+  }
+  
+  .neo-card-inset {
+    background: oklch(0.92 0.018 286.375);
+    border-radius: 1rem;
+    box-shadow: 
+      inset 4px 4px 8px oklch(0.85 0.02 286.375),
+      inset -4px -4px 8px oklch(0.98 0.01 286.375);
+  }
+  
+  /* Lottery ball styles */
+  .lottery-ball {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 700;
+    font-size: 1.25rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .lottery-ball-default {
+    background: linear-gradient(145deg, oklch(0.97 0.01 286.375), oklch(0.9 0.02 286.375));
+    box-shadow: 
+      4px 4px 8px oklch(0.82 0.02 286.375),
+      -4px -4px 8px oklch(0.99 0.01 286.375),
+      inset 1px 1px 2px oklch(0.99 0.01 286.375);
+    color: oklch(0.4 0.02 286.375);
+  }
+  
+  .lottery-ball-selected {
+    background: linear-gradient(145deg, oklch(0.55 0.25 276.966), oklch(0.45 0.26 276.966));
+    box-shadow: 
+      0 0 20px oklch(0.5 0.25 276.966 / 0.5),
+      4px 4px 8px oklch(0.82 0.02 286.375),
+      -2px -2px 4px oklch(0.99 0.01 286.375);
+    color: white;
+    transform: scale(1.1);
+  }
+  
+  .lottery-ball-hot {
+    background: linear-gradient(145deg, oklch(0.75 0.18 41.116), oklch(0.65 0.2 41.116));
+    box-shadow: 
+      0 0 15px oklch(0.7 0.19 41.116 / 0.4),
+      4px 4px 8px oklch(0.82 0.02 286.375),
+      -2px -2px 4px oklch(0.99 0.01 286.375);
+    color: white;
+  }
+  
+  .lottery-ball-cold {
+    background: linear-gradient(145deg, oklch(0.72 0.12 180.426), oklch(0.62 0.13 180.426));
+    box-shadow: 
+      0 0 15px oklch(0.68 0.127 180.426 / 0.4),
+      4px 4px 8px oklch(0.82 0.02 286.375),
+      -2px -2px 4px oklch(0.99 0.01 286.375);
+    color: white;
+  }
+  
+  .lottery-ball:hover:not(.lottery-ball-selected) {
+    transform: translateY(-2px);
+    box-shadow: 
+      6px 6px 12px oklch(0.8 0.02 286.375),
+      -4px -4px 8px oklch(0.99 0.01 286.375);
+  }
+  
+  /* Gradient text */
+  .gradient-text {
+    background: linear-gradient(135deg, oklch(0.511 0.262 276.966), oklch(0.679 0.127 180.426));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Animated wave background */
+  .wave-bg {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .wave-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('/images/hero-background.png') center/cover no-repeat;
+    opacity: 0.3;
+    z-index: 0;
+  }
+  
+  /* IFR gauge animation */
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px oklch(0.5 0.25 276.966 / 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px oklch(0.5 0.25 276.966 / 0.6);
+    }
+  }
+  
+  .ifr-high {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  
+  /* Breathing animation for numbers */
+  @keyframes breathing {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.02);
+    }
+  }
+  
+  .breathing {
+    animation: breathing 3s ease-in-out infinite;
+  }
+  
+  /* Monte Carlo particle effect */
+  @keyframes float-particle {
+    0% {
+      transform: translateY(0) translateX(0);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100px) translateX(20px);
+      opacity: 0;
+    }
+  }
+  
+  .particle {
+    animation: float-particle 3s ease-out infinite;
+  }
+  
+  /* Progress bar with gradient */
+  .progress-gradient {
+    background: linear-gradient(90deg, 
+      oklch(0.679 0.127 180.426) 0%, 
+      oklch(0.511 0.262 276.966) 50%, 
+      oklch(0.702 0.191 41.116) 100%
+    );
+  }
+  
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: oklch(0.9 0.02 286.375);
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: oklch(0.7 0.1 276.966);
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: oklch(0.6 0.15 276.966);
+  }
+}
