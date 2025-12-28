@@ -119,9 +119,9 @@ export default function Estatisticas() {
               />
               <StatCard
                 icon={TrendingUp}
-                value="R$ 2,5B"
+                value="R$ 589M"
                 label="Maior Prêmio"
-                description="Mega da Virada 2022"
+                description="Mega da Virada 2023"
                 color="emerald"
                 index={3}
               />
